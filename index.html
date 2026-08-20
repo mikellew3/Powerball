@@ -9,16 +9,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --ground:#0a0c1b;
-  --panel:#12162c;
-  --panel2:#1b2140;
-  --line:#272e52;
-  --steel:#8e97be;
-  --dim:#5c6490;
-  --paper:#edeff7;
-  --gold:#f5c451;
-  --red:#e1362b;
-  --turf:#37a06b;
+  --ground:#050d09;
+  --panel:#0b1913;
+  --panel2:#12291e;
+  --line:#1b3328;
+  --steel:#7f978a;
+  --dim:#546b5f;
+  --paper:#efede4;
+  --forest:#0e5537;
+  --green:#1a7a4f;
+  --lit:#3fb77e;
+  --bone:#efede4;
   --display:"Big Shoulders Display","Oswald","Arial Narrow",Impact,sans-serif;
   --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -30,8 +31,8 @@ body{
   font-family:var(--body);
   color:var(--paper);
   background:
-    radial-gradient(1300px 760px at 50% -14%, #1c2349 0%, rgba(28,35,73,0) 62%),
-    radial-gradient(900px 560px at 46% 46%, rgba(245,196,81,.055), transparent 72%),
+    radial-gradient(1300px 760px at 50% -14%, #103626 0%, rgba(16,54,38,0) 62%),
+    radial-gradient(900px 560px at 46% 46%, rgba(63,183,126,.05), transparent 72%),
     var(--ground);
   overflow:hidden;
 }
@@ -56,20 +57,23 @@ body{
   position:relative;
 }
 .marquee::after{
-  content:"";position:absolute;left:0;bottom:-1px;height:2px;width:120px;background:var(--red);
+  content:"";position:absolute;left:0;bottom:-1px;height:2px;width:120px;background:var(--green);
 }
+.brand{display:flex;align-items:center;gap:13px}
+.cmark{width:clamp(34px,3.6vw,52px);height:auto;flex:none;fill:var(--forest);
+  filter:drop-shadow(0 0 18px rgba(26,122,79,.28))}
 .eyebrow{
   font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--steel);
   display:flex;align-items:center;gap:9px;
 }
-.live-dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(225,54,43,.6);animation:pulse 2.2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(225,54,43,0)}100%{box-shadow:0 0 0 0 rgba(225,54,43,0)}}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--lit);box-shadow:0 0 0 0 rgba(63,183,126,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(63,183,126,0)}100%{box-shadow:0 0 0 0 rgba(63,183,126,0)}}
 h1{
   margin:0;font-family:var(--display);font-weight:800;
   font-size:clamp(26px,3.4vw,50px);line-height:.94;letter-spacing:.02em;
   text-transform:uppercase;text-align:center;text-wrap:balance;
 }
-h1 .sub{display:block;font-size:.34em;font-weight:500;letter-spacing:.34em;color:var(--gold);margin-top:7px}
+h1 .sub{display:block;font-size:.34em;font-weight:500;letter-spacing:.34em;color:var(--lit);margin-top:7px}
 .meta{
   justify-self:end;text-align:right;font-family:var(--mono);font-size:11px;
   color:var(--dim);line-height:1.7;font-variant-numeric:tabular-nums;
@@ -87,8 +91,8 @@ h1 .sub{display:block;font-size:.34em;font-weight:500;letter-spacing:.34em;color
   position:relative;min-height:0;
   border:1px solid var(--line);border-radius:4px;
   background:
-    linear-gradient(180deg, rgba(27,33,64,.55), rgba(10,12,27,.2)),
-    repeating-linear-gradient(90deg, rgba(142,151,190,.035) 0 1px, transparent 1px 44px);
+    linear-gradient(180deg, rgba(16,45,32,.55), rgba(5,13,9,.2)),
+    repeating-linear-gradient(90deg, rgba(127,151,138,.035) 0 1px, transparent 1px 44px);
   overflow:hidden;
 }
 canvas{display:block;width:100%;height:100%}
@@ -96,12 +100,12 @@ canvas{display:block;width:100%;height:100%}
   position:absolute;left:0;right:0;bottom:0;
   display:flex;align-items:center;justify-content:center;gap:14px;
   padding:10px 14px;
-  background:linear-gradient(180deg, rgba(10,12,27,0), rgba(10,12,27,.92) 55%);
+  background:linear-gradient(180deg, rgba(5,13,9,0), rgba(5,13,9,.93) 55%);
   font-family:var(--display);font-weight:700;text-transform:uppercase;
   font-size:clamp(15px,1.5vw,21px);letter-spacing:.13em;color:var(--paper);
 }
 .status .count{
-  font-family:var(--mono);font-size:.86em;letter-spacing:0;color:var(--gold);
+  font-family:var(--mono);font-size:.86em;letter-spacing:0;color:var(--lit);
   border:1px solid rgba(245,196,81,.4);border-radius:2px;padding:1px 8px;
   font-variant-numeric:tabular-nums;
 }
@@ -138,16 +142,17 @@ canvas{display:block;width:100%;height:100%}
   content:"";display:block;height:9px;width:62%;border-radius:2px;
   background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px);
 }
-.slot .tick{opacity:0;color:var(--turf);font-size:15px}
-.slot.filled{background:var(--panel2);border-left-color:var(--gold)}
-.slot.filled .pick{color:var(--gold)}
+.slot .tick{opacity:0;color:var(--lit);font-size:15px}
+.slot.filled{background:var(--panel2);border-left-color:var(--lit)}
+.slot.filled .pick{color:var(--lit)}
 .slot.filled .name{color:var(--paper);font-weight:600}
 .slot.filled .tick{opacity:1}
-.slot.first.filled{border-left-color:var(--red)}
-.slot.first.filled .pick{color:var(--red)}
+.slot.first.filled{background:var(--forest);border-left-color:var(--bone)}
+.slot.first.filled .pick,.slot.first.filled .name{color:var(--bone)}
+.slot.first.filled .tick{color:var(--bone)}
 .slot.flash{animation:flash .9s ease-out}
 @keyframes flash{
-  0%{background:rgba(245,196,81,.85);transform:translateX(6px)}
+  0%{background:rgba(63,183,126,.6);transform:translateX(6px)}
   100%{background:var(--panel2);transform:none}
 }
 
@@ -165,16 +170,16 @@ button{
 }
 button:hover:not(:disabled){border-color:var(--steel);background:var(--panel2)}
 button:disabled{opacity:.36;cursor:not-allowed}
-button.primary{background:var(--red);border-color:var(--red);color:#fff}
-button.primary:hover:not(:disabled){background:#f04437;border-color:#f04437}
+button.primary{background:var(--forest);border-color:#17714a;color:#fff}
+button.primary:hover:not(:disabled){background:#17714a;border-color:#1f8d5d}
 button.ghost{background:transparent}
-:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+:focus-visible{outline:2px solid var(--lit);outline-offset:2px}
 .toggle{
   display:inline-flex;align-items:center;gap:8px;cursor:pointer;
   font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);
   border:1px solid var(--line);border-radius:3px;padding:10px 14px;
 }
-.toggle input{accent-color:var(--gold);margin:0;width:14px;height:14px}
+.toggle input{accent-color:var(--green);margin:0;width:14px;height:14px}
 .hint{font-family:var(--mono);font-size:11px;color:var(--dim)}
 kbd{
   font-family:var(--mono);font-size:10px;color:var(--steel);
@@ -184,7 +189,7 @@ kbd{
 /* ---------- setup ---------- */
 .setup{
   position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:22px;
-  background:rgba(5,6,15,.9);backdrop-filter:blur(7px);overflow:auto;
+  background:rgba(3,9,6,.92);backdrop-filter:blur(7px);overflow:auto;
 }
 .setup[hidden]{display:none}
 .card{
@@ -209,8 +214,29 @@ input[type=text]:focus,textarea:focus{border-color:var(--steel);outline:none}
 .field{margin-bottom:16px}
 .field .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .counter{font-family:var(--mono);font-size:11px;color:var(--dim)}
-.counter.bad{color:var(--red)}
+.counter.bad{color:var(--forest)}
 .card .actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:20px}
+.opt{color:var(--dim);letter-spacing:.12em}
+.logorow{display:flex;gap:14px;align-items:flex-start}
+.logoprev{
+  width:88px;height:88px;flex:none;border:1px solid var(--line);border-radius:3px;
+  background:var(--ground) center/contain no-repeat;
+  display:grid;place-items:center;color:var(--dim);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+}
+.logoprev.has span{display:none}
+.logobtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#inpLogo{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.filebtn{
+  display:inline-block;margin:0;cursor:pointer;
+  font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--paper);
+  background:var(--panel2);border:1px solid var(--line);border-radius:3px;padding:10px 14px;
+}
+.filebtn:hover{border-color:var(--steel)}
+#inpLogo:focus-visible + .filebtn,.filebtn:focus-visible{outline:2px solid var(--lit);outline-offset:2px}
+button.small{padding:9px 13px}
+.logohelp{flex-basis:100%;margin:0;font-size:12px;line-height:1.5;color:var(--dim)}
 
 /* ---------- results ---------- */
 .results{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:none}
@@ -235,7 +261,12 @@ input[type=text]:focus,textarea:focus{border-color:var(--steel);outline:none}
 <div class="stage" aria-hidden="false">
 
   <header class="marquee">
-    <div class="eyebrow"><span class="live-dot"></span> Official Drawing</div>
+    <div class="brand">
+      <svg class="cmark" viewBox="-118 -118 236 236" role="img" aria-label="League mark">
+        <path d="M68.2 -73.14 A100 100 0 1 0 68.2 73.14 L23.67 48.53 A54 54 0 1 1 23.67 -48.53 Z"/>
+      </svg>
+      <div class="eyebrow"><span class="live-dot"></span> Official Drawing</div>
+    </div>
     <h1 id="leagueTitle">The Bulldog League<span class="sub">Draft Order Drawing</span></h1>
     <div class="meta">
       <div>DRAW <b id="drawId">——————</b></div>
@@ -283,6 +314,18 @@ input[type=text]:focus,textarea:focus{border-color:var(--steel);outline:none}
       </div>
       <textarea id="inpNames" spellcheck="false" placeholder="Mike&#10;Dave&#10;Sully&#10;…"></textarea>
     </div>
+    <div class="field">
+      <label>League logo <span class="opt">optional</span></label>
+      <div class="logorow">
+        <div class="logoprev" id="logoPrev"><span>No logo</span></div>
+        <div class="logobtns">
+          <input type="file" id="inpLogo" accept="image/*">
+          <label class="filebtn" for="inpLogo">Choose an image</label>
+          <button type="button" class="ghost small" id="btnLogoClear">Remove</button>
+          <p class="logohelp">PNG, JPG or SVG. It rides on the back of the drum and stays in this browser.</p>
+        </div>
+      </div>
+    </div>
     <div class="actions">
       <button class="primary" id="btnLoad">Load the drum</button>
       <button class="ghost" id="btnSample">Load sample names</button>
@@ -310,6 +353,7 @@ const el = {
   optAuto: $('optAuto'), optSound: $('optSound'),
   setup: $('setup'), inpLeague: $('inpLeague'), inpNames: $('inpNames'),
   nameCount: $('nameCount'), btnLoad: $('btnLoad'), btnSample: $('btnSample'),
+  inpLogo: $('inpLogo'), logoPrev: $('logoPrev'), btnLogoClear: $('btnLogoClear'),
   btnCancel: $('btnCancel'), results: $('setupResults'), resultsText: $('setupResultsText')
 };
 
@@ -444,6 +488,7 @@ const Sound = (() => {
 /* ============================ state ============================ */
 const S = {
   league: '', names: [], order: [], balls: [], drawn: [],
+  logo: '', logoImg: null,
   phase: 'setup',      // setup | ready | spinup | armed | flight | settle | complete
   t: 0,                // seconds elapsed in current phase
   blow: 0,             // blower clock, drives the surge cycle
@@ -649,17 +694,37 @@ function renderDrum(){
 
   // interior glass
   const glass = ctx.createRadialGradient(cx - R*.32, cy - R*.42, R*.08, cx, cy, R);
-  glass.addColorStop(0, 'rgba(120,136,196,.20)');
-  glass.addColorStop(.62, 'rgba(30,38,78,.30)');
-  glass.addColorStop(1, 'rgba(8,10,24,.62)');
+  glass.addColorStop(0, 'rgba(96,150,124,.20)');
+  glass.addColorStop(.62, 'rgba(18,48,35,.34)');
+  glass.addColorStop(1, 'rgba(4,12,8,.66)');
   ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI*2); ctx.fillStyle = glass; ctx.fill();
+
+  // the house mark on the back of the glass — the league logo if there is one,
+  // otherwise the C
+  ctx.save();
+  ctx.beginPath(); ctx.arc(cx, cy, R - 2, 0, Math.PI*2); ctx.clip();
+  if (S.logoImg && S.logoImg.complete && S.logoImg.naturalWidth){
+    const im = S.logoImg;
+    const fit = Math.min(R * 1.24 / im.naturalWidth, R * 1.24 / im.naturalHeight);
+    const w = im.naturalWidth * fit, h = im.naturalHeight * fit;
+    ctx.globalAlpha = .17;
+    ctx.drawImage(im, cx - w/2, cy - h/2, w, h);
+    ctx.globalAlpha = 1;
+  } else {
+    ctx.translate(cx, cy);
+    ctx.scale(R / 215, R / 215);
+    ctx.fillStyle = 'rgba(26,122,79,.26)';
+    ctx.fill(C_PATH);
+    ctx.lineWidth = 5; ctx.strokeStyle = 'rgba(63,183,126,.16)'; ctx.stroke(C_PATH);
+  }
+  ctx.restore();
 
   // air-jet glow at the floor
   const blowing = S.phase === 'spinup' || S.phase === 'armed' || S.phase === 'flight' || S.phase === 'settle';
   if (blowing){
     const jg = ctx.createLinearGradient(0, cy + R, 0, cy + R*.12);
-    jg.addColorStop(0, 'rgba(245,196,81,.20)');
-    jg.addColorStop(1, 'rgba(245,196,81,0)');
+    jg.addColorStop(0, 'rgba(63,183,126,.22)');
+    jg.addColorStop(1, 'rgba(63,183,126,0)');
     ctx.save();
     ctx.beginPath(); ctx.arc(cx, cy, R - 2, 0, Math.PI*2); ctx.clip();
     ctx.fillStyle = jg; ctx.fillRect(cx - R, cy, R*2, R);
@@ -667,30 +732,46 @@ function renderDrum(){
   }
 
   // struts
-  ctx.strokeStyle = 'rgba(142,151,190,.28)'; ctx.lineWidth = 4; ctx.lineCap = 'round';
+  ctx.strokeStyle = 'rgba(127,151,138,.3)'; ctx.lineWidth = 4; ctx.lineCap = 'round';
   ctx.beginPath();
   ctx.moveTo(cx - R*.62, cy + R*.75); ctx.lineTo(cx - R*.78, G.trayY - G.socketR - 12);
   ctx.moveTo(cx + R*.62, cy + R*.75); ctx.lineTo(cx + R*.78, G.trayY - G.socketR - 12);
   ctx.stroke();
 
-  // chrome rim
-  const rim = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R);
-  rim.addColorStop(0, '#5d6690');
-  rim.addColorStop(.28, '#b9c0dd');
-  rim.addColorStop(.52, '#4d5480');
-  rim.addColorStop(.78, '#9aa3c8');
-  rim.addColorStop(1, '#343b63');
-  ctx.beginPath(); ctx.arc(cx, cy, R + 5, 0, Math.PI*2);
-  ctx.strokeStyle = rim; ctx.lineWidth = 10; ctx.stroke();
+  // the drum wears the collar: bone studs, black band, forest stripe
+  const band = Math.max(11, R * .1);
+  const studH = band * 1.5, studW = band * 1.45;
+  for (let i = 0; i < STUDS; i++){
+    const a = (i / STUDS) * Math.PI * 2 - Math.PI / 2 + Math.PI / STUDS;
+    ctx.save();
+    ctx.translate(cx + Math.cos(a) * (R + band * .35), cy + Math.sin(a) * (R + band * .35));
+    ctx.rotate(a + Math.PI / 2);
+    ctx.beginPath();
+    ctx.moveTo(-studW / 2, band * .6);
+    ctx.lineTo(-studW * .26, -studH * .82);
+    ctx.quadraticCurveTo(0, -studH * 1.12, studW * .26, -studH * .82);
+    ctx.lineTo(studW / 2, band * .6);
+    ctx.closePath();
+    const sg = ctx.createLinearGradient(-studW / 2, 0, studW / 2, 0);
+    sg.addColorStop(0, '#b9bdb0'); sg.addColorStop(.42, '#efede4'); sg.addColorStop(1, '#8d9187');
+    ctx.fillStyle = sg; ctx.fill();
+    ctx.strokeStyle = '#050d09'; ctx.lineWidth = Math.max(1.8, band * .2);
+    ctx.lineJoin = 'round'; ctx.stroke();
+    ctx.restore();
+  }
+  ctx.beginPath(); ctx.arc(cx, cy, R + band * .5, 0, Math.PI*2);
+  ctx.strokeStyle = '#080f0b'; ctx.lineWidth = band; ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx, cy, R + band * .5, 0, Math.PI*2);
+  ctx.strokeStyle = '#0e5537'; ctx.lineWidth = band * .46; ctx.stroke();
   ctx.beginPath(); ctx.arc(cx, cy, R - 1, 0, Math.PI*2);
-  ctx.strokeStyle = 'rgba(237,239,247,.14)'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.strokeStyle = 'rgba(239,237,228,.13)'; ctx.lineWidth = 2; ctx.stroke();
 
   // specular sweep
   ctx.save();
   ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI*2); ctx.clip();
   ctx.beginPath();
   ctx.arc(cx, cy, R * .84, Math.PI * 1.08, Math.PI * 1.46);
-  ctx.strokeStyle = 'rgba(237,239,247,.10)'; ctx.lineWidth = R * .075; ctx.lineCap = 'round';
+  ctx.strokeStyle = 'rgba(239,237,228,.10)'; ctx.lineWidth = R * .075; ctx.lineCap = 'round';
   ctx.stroke();
   ctx.restore();
 
@@ -698,12 +779,12 @@ function renderDrum(){
   const glow = S.portGlow;
   ctx.save();
   ctx.translate(cx, cy - R);
-  ctx.fillStyle = '#171c38';
-  roundRect(-R*.13, -20, R*.26, 26, 5); ctx.fill();
-  ctx.strokeStyle = glow > .02 ? 'rgba(245,196,81,' + (.35 + glow*.65) + ')' : 'rgba(142,151,190,.5)';
+  ctx.fillStyle = '#0a1a12';
+  roundRect(-R*.13, -22, R*.26, 28, 5); ctx.fill();
+  ctx.strokeStyle = glow > .02 ? 'rgba(63,183,126,' + (.35 + glow*.65) + ')' : 'rgba(127,151,138,.5)';
   ctx.lineWidth = 2; ctx.stroke();
   if (glow > .02){
-    ctx.fillStyle = 'rgba(245,196,81,' + (glow * .3) + ')';
+    ctx.fillStyle = 'rgba(63,183,126,' + (glow * .3) + ')';
     ctx.beginPath(); ctx.arc(0, -6, R*.2, 0, Math.PI*2); ctx.fill();
   }
   ctx.restore();
@@ -716,24 +797,26 @@ function renderTray(){
   const y = G.trayY - r - 10, h = r * 2 + 20;
 
   const bar = ctx.createLinearGradient(0, y, 0, y + h);
-  bar.addColorStop(0, '#242b52'); bar.addColorStop(.5, '#161b36'); bar.addColorStop(1, '#0d1026');
+  bar.addColorStop(0, '#16362592'.slice(0,7)); bar.addColorStop(.5, '#0c1d14'); bar.addColorStop(1, '#060f0a');
   roundRect(x, y, w, h, 6); ctx.fillStyle = bar; ctx.fill();
-  ctx.strokeStyle = 'rgba(142,151,190,.34)'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.strokeStyle = 'rgba(26,122,79,.5)'; ctx.lineWidth = 1; ctx.stroke();
 
   for (let i = 0; i < n; i++){
     const p = socketPos(i);
     ctx.beginPath(); ctx.arc(p.x, p.y, r + 3, 0, Math.PI*2);
-    ctx.fillStyle = 'rgba(5,6,15,.62)'; ctx.fill();
-    ctx.strokeStyle = i < S.drawn.length ? 'rgba(245,196,81,.55)' : 'rgba(142,151,190,.2)';
+    ctx.fillStyle = 'rgba(3,9,6,.66)'; ctx.fill();
+    ctx.strokeStyle = i < S.drawn.length ? 'rgba(63,183,126,.6)' : 'rgba(127,151,138,.2)';
     ctx.lineWidth = 1.5; ctx.stroke();
     ctx.font = '700 ' + Math.max(9, Math.round(r * .55)) + 'px ' + FONT_UI;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillStyle = i < S.drawn.length ? 'rgba(245,196,81,.95)' : 'rgba(92,100,144,.85)';
+    ctx.fillStyle = i < S.drawn.length ? 'rgba(63,183,126,.95)' : 'rgba(84,107,95,.9)';
     ctx.fillText(String(i + 1), p.x, y - 10);
   }
 }
 
 const FONT_UI = '"Barlow",system-ui,sans-serif';
+const C_PATH = new Path2D('M68.2 -73.14 A100 100 0 1 0 68.2 73.14 L23.67 48.53 A54 54 0 1 1 23.67 -48.53 Z');
+const STUDS = 14;
 const FONT_DISPLAY = '"Big Shoulders Display","Oswald","Arial Narrow",Impact,sans-serif';
 
 function renderBall(b, scale){
@@ -743,19 +826,23 @@ function renderBall(b, scale){
   ctx.translate(b.x, b.y);
 
   const g = ctx.createRadialGradient(-r*.36, -r*.42, r*.06, 0, 0, r*1.12);
-  g.addColorStop(0, '#ffffff');
-  g.addColorStop(.42, first ? '#f6e3df' : '#f3efe2');
-  g.addColorStop(.86, first ? '#d9b1ab' : '#c9c4b3');
-  g.addColorStop(1, first ? '#8f4b43' : '#8b8878');
+  if (first){
+    g.addColorStop(0, '#2ea06a'); g.addColorStop(.42, '#14seed'.replace('seed','6b45'));
+    g.addColorStop(.86, '#0e5537'); g.addColorStop(1, '#062b1c');
+  } else {
+    g.addColorStop(0, '#ffffff'); g.addColorStop(.42, '#f3f0e6');
+    g.addColorStop(.86, '#cbc7b8'); g.addColorStop(1, '#8b8a7c');
+  }
   ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI*2);
   ctx.fillStyle = g;
-  ctx.shadowColor = 'rgba(3,4,12,.55)'; ctx.shadowBlur = r * .5; ctx.shadowOffsetY = r * .2;
+  ctx.shadowColor = 'rgba(2,8,5,.6)'; ctx.shadowBlur = r * .5; ctx.shadowOffsetY = r * .2;
   ctx.fill();
   ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+  ctx.strokeStyle = '#080f0b'; ctx.lineWidth = Math.max(1.1, r * .075); ctx.stroke();
 
   ctx.rotate(b.rot);
   ctx.beginPath(); ctx.arc(0, 0, r * .74, 0, Math.PI*2);
-  ctx.strokeStyle = first ? 'rgba(225,54,43,.85)' : 'rgba(20,22,40,.14)';
+  ctx.strokeStyle = first ? 'rgba(239,237,228,.5)' : 'rgba(8,15,11,.16)';
   ctx.lineWidth = Math.max(1, r * .05); ctx.stroke();
   ctx.rotate(-b.rot);
 
@@ -763,7 +850,7 @@ function renderBall(b, scale){
   const fs = Math.max(5, r * (b.k || .4));
   ctx.font = '600 ' + fs.toFixed(1) + 'px ' + FONT_UI;
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillStyle = first ? '#a8261d' : '#1a1c30';
+  ctx.fillStyle = first ? '#efede4' : '#0d1712';
   const lead = fs * 1.02;
   const top = -(lines.length - 1) * lead / 2;
   for (let i = 0; i < lines.length; i++) ctx.fillText(lines[i], 0, top + i * lead + r * .02);
@@ -777,7 +864,7 @@ function renderFlash(f){
   const p = Math.min(1, f.t / .7);
   const r = G.socketR * (1 + p * 3.4);
   ctx.beginPath(); ctx.arc(f.x, f.y, r, 0, Math.PI*2);
-  ctx.strokeStyle = 'rgba(245,196,81,' + (1 - p) * .8 + ')';
+  ctx.strokeStyle = 'rgba(63,183,126,' + (1 - p) * .85 + ')';
   ctx.lineWidth = 3 * (1 - p) + .5; ctx.stroke();
 }
 
@@ -790,7 +877,7 @@ function renderHero(){
 
   ctx.save();
   ctx.beginPath(); ctx.arc(cx, cy, R - 1, 0, Math.PI*2); ctx.clip();
-  ctx.fillStyle = 'rgba(6,8,20,' + (0.62 * e) + ')';
+  ctx.fillStyle = 'rgba(3,10,7,' + (0.66 * e) + ')';
   ctx.fillRect(cx - R, cy - R, R*2, R*2);
   ctx.restore();
 
@@ -803,12 +890,12 @@ function renderHero(){
   ctx.globalAlpha = e;
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.font = '500 ' + Math.round(R * .075) + 'px ' + FONT_UI;
-  ctx.fillStyle = 'rgba(245,196,81,.95)';
+  ctx.fillStyle = 'rgba(63,183,126,.95)';
   ctx.letterSpacing = Math.round(R * .028) + 'px';
   ctx.fillText('FIRST OVERALL PICK', cx, cy + R * .13);
   ctx.letterSpacing = '0px';
   ctx.font = '800 ' + Math.round(R * .26) + 'px ' + FONT_DISPLAY;
-  ctx.fillStyle = '#edeff7';
+  ctx.fillStyle = '#efede4';
   ctx.fillText(b.name.toUpperCase(), cx, cy + R * .33);
   ctx.globalAlpha = 1;
 }
@@ -944,6 +1031,47 @@ function orderText(){
          lines.join('\n');
 }
 
+/* ============================ league logo ============================ */
+const LOGO_MAX = 560;
+
+function applyLogo(dataUrl){
+  S.logo = dataUrl || '';
+  if (!S.logo){
+    S.logoImg = null;
+    el.logoPrev.classList.remove('has');
+    el.logoPrev.style.backgroundImage = '';
+    return;
+  }
+  const img = new Image();
+  img.onload = () => { S.logoImg = img; };
+  img.src = S.logo;
+  el.logoPrev.classList.add('has');
+  el.logoPrev.style.backgroundImage = 'url("' + S.logo + '")';
+}
+
+// Scale the picked file down before it goes anywhere near localStorage.
+function readLogoFile(file){
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const raw = String(reader.result);
+    if (/^data:image\/svg/.test(raw)){ applyLogo(raw); return; }
+    const img = new Image();
+    img.onload = () => {
+      const k = Math.min(1, LOGO_MAX / Math.max(img.naturalWidth, img.naturalHeight));
+      const w = Math.max(1, Math.round(img.naturalWidth * k));
+      const h = Math.max(1, Math.round(img.naturalHeight * k));
+      const oc = document.createElement('canvas');
+      oc.width = w; oc.height = h;
+      oc.getContext('2d').drawImage(img, 0, 0, w, h);
+      applyLogo(oc.toDataURL('image/png'));
+    };
+    img.onerror = () => { el.logoPrev.textContent = 'Could not read that image'; };
+    img.src = raw;
+  };
+  reader.readAsDataURL(file);
+}
+
 /* ============================ setup + wiring ============================ */
 function parseNames(raw){
   return raw.split(/\r?\n|,/) .map(s => s.trim()).filter(Boolean).slice(0, 24);
@@ -974,8 +1102,11 @@ function commitSetup(){
   S.names = names;
   S.committed = true;
   try {
-    localStorage.setItem(STORE, JSON.stringify({ league: S.league, names: S.names }));
-  } catch(e){}
+    localStorage.setItem(STORE, JSON.stringify({ league: S.league, names: S.names, logo: S.logo }));
+  } catch(e){
+    // A large logo can blow the storage quota; the roster still matters more.
+    try { localStorage.setItem(STORE, JSON.stringify({ league: S.league, names: S.names })); } catch(e2){}
+  }
   el.league.innerHTML = escapeHtml(S.league || 'The Bulldog League') +
     '<span class="sub">Draft Order Drawing</span>';
   el.setup.hidden = true;
@@ -1024,6 +1155,8 @@ el.btnSample.addEventListener('click', () => {
   updateCount();
 });
 el.inpNames.addEventListener('input', updateCount);
+el.inpLogo.addEventListener('change', e => { readLogoFile(e.target.files && e.target.files[0]); });
+el.btnLogoClear.addEventListener('click', () => { el.inpLogo.value = ''; applyLogo(''); });
 el.optAuto.addEventListener('change', () => {
   S.auto = el.optAuto.checked;
   if (S.phase === 'armed'){ S.nextIn = Math.max(S.nextIn, 2.5); armed(); }
@@ -1075,6 +1208,7 @@ function boot(){
     S.names = saved.names;
     el.inpLeague.value = S.league;
     el.inpNames.value = S.names.join('\n');
+    if (saved.logo) applyLogo(saved.logo);
     el.league.innerHTML = escapeHtml(S.league || 'The Bulldog League') +
       '<span class="sub">Draft Order Drawing</span>';
     el.setup.hidden = true;

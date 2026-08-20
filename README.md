@@ -5,6 +5,10 @@ balls tumble in a glass drum, each one carrying a manager's name. They pop out o
 at a time, and the order they come out **is** the draft order — first ball out takes
 the first overall pick.
 
+Themed to the league mark: forest green, black and bone. The drum wears a studded
+bulldog collar, the C rides on the back of the glass, and the ball that comes out
+first is a forest-green one so the top pick is unmistakable on video.
+
 Built to be screen-recorded: 16:9 broadcast layout, big legible type, a countdown
 before every ball, and a final frame that shows the whole order at once.
 
@@ -18,8 +22,10 @@ branch root).
 ## Setting up your league
 
 The setup screen loads first. Enter your league name and one manager per line, then
-hit **Load the drum**. Names are saved in the browser, so the next time you open it
-your roster is already there. Anywhere from 2 to 24 names works; 12 is the sweet
+hit **Load the drum**. You can also drop in the league logo — it gets scaled down,
+ghosted onto the back of the drum in place of the C, and kept in your browser. PNG,
+JPG and SVG all work. Names are saved in the browser, so the next time you open it
+your roster and logo are already there. Anywhere from 2 to 24 names works; 12 is the sweet
 spot for how the drum and tray are sized.
 
 ## Recording the draw
