@@ -60,7 +60,7 @@ body{
   content:"";position:absolute;left:0;bottom:-1px;height:2px;width:120px;background:var(--green);
 }
 .brand{display:flex;align-items:center;gap:13px}
-.cmark{width:clamp(34px,3.6vw,52px);height:auto;flex:none;fill:var(--forest);
+.cmark{width:clamp(48px,5vw,76px);height:auto;flex:none;fill:var(--forest);
   filter:drop-shadow(0 0 18px rgba(26,122,79,.28))}
 .eyebrow{
   font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--steel);
@@ -262,8 +262,8 @@ button.small{padding:9px 13px}
 
   <header class="marquee">
     <div class="brand">
-      <svg class="cmark" viewBox="-118 -118 236 236" role="img" aria-label="League mark">
-        <path d="M68.2 -73.14 A100 100 0 1 0 68.2 73.14 L23.67 48.53 A54 54 0 1 1 23.67 -48.53 Z"/>
+      <svg class="cmark" viewBox="-250 -175 500 350" role="img" aria-label="League mark">
+        <path d="M -234 0 C -206 -76, -120 -142, 12 -153 C 122 -160, 202 -122, 232 -68 L 200 -32 C 172 -80, 106 -94, 12 -84 C -76 -75, -168 -44, -168 0 C -168 44, -76 75, 12 84 C 106 94, 172 80, 200 32 L 232 68 C 202 122, 122 160, 12 153 C -120 142, -206 76, -234 0 Z"/>
       </svg>
       <div class="eyebrow"><span class="live-dot"></span> Official Drawing</div>
     </div>
@@ -712,10 +712,10 @@ function renderDrum(){
     ctx.globalAlpha = 1;
   } else {
     ctx.translate(cx, cy);
-    ctx.scale(R / 215, R / 215);
+    ctx.scale(R / 330, R / 330);
     ctx.fillStyle = 'rgba(26,122,79,.26)';
     ctx.fill(C_PATH);
-    ctx.lineWidth = 5; ctx.strokeStyle = 'rgba(63,183,126,.16)'; ctx.stroke(C_PATH);
+    ctx.lineWidth = 7; ctx.strokeStyle = 'rgba(63,183,126,.16)'; ctx.stroke(C_PATH);
   }
   ctx.restore();
 
@@ -815,7 +815,7 @@ function renderTray(){
 }
 
 const FONT_UI = '"Barlow",system-ui,sans-serif';
-const C_PATH = new Path2D('M68.2 -73.14 A100 100 0 1 0 68.2 73.14 L23.67 48.53 A54 54 0 1 1 23.67 -48.53 Z');
+const C_PATH = new Path2D('M -234 0 C -206 -76, -120 -142, 12 -153 C 122 -160, 202 -122, 232 -68 L 200 -32 C 172 -80, 106 -94, 12 -84 C -76 -75, -168 -44, -168 0 C -168 44, -76 75, 12 84 C 106 94, 172 80, 200 32 L 232 68 C 202 122, 122 160, 12 153 C -120 142, -206 76, -234 0 Z');
 const STUDS = 14;
 const FONT_DISPLAY = '"Big Shoulders Display","Oswald","Arial Narrow",Impact,sans-serif';
 
